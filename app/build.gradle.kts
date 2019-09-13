@@ -7,11 +7,15 @@ plugins {
 android {
     compileSdkVersion(28)
 
+    //此配置虽然可以不配置，这里需要配置的原因是tool.sh里需要读取，
+    //后面会想办法解决
+    buildToolsVersion("28.0.3")
+
     defaultConfig {
         minSdkVersion(18)
         targetSdkVersion(22)
         applicationId = "com.fpliu.newton.video.player.sample"
-        versionCode = 1568374551
+        versionCode = 1568377850
         versionName = "1.0.0"
 
         //只需要支持中文和英文即可，其他语言不必支持

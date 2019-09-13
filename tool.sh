@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #-------------- these config can be changed --------------
-
+#appName如果不设置的话，使用当前文件夹的名字
 appName=
 
 #---------------------------------------------------------
@@ -683,12 +683,12 @@ prepareJiaguCommand() {
 
 jiaguInternal() {
     #使用360账户登录，首次用脚本登录会失败，它要求在GUI下用图片验证码进行验证，但是code却是0
-    $jiagu -login $_360UserName $_360Password
+    $jiagu -login "$_360UserName" "$_360Password"
     
     #导入签名信息
     $jiagu -importsign "$storeFile" "$storePassword" "$keyAlias" "$keyPassword" || error "your keyStore is not right!"
     
-    local apkDir=$(dirname "$1")
+    local apkDir; apkDir=$(dirname "$1")
     info "jiaguInternal() apkDir = $apkDir"
 
     #加固，并进行v1签名
