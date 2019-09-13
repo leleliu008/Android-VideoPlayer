@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resproguard>
+  <issue id="property">
+    <seventzip value="true"/>
+    <metaname value="META-INF"/>
+    <keeproot value="false"/>
+	<mergeDuplicatedRes value="true"/>
+  </issue>
+
+  <issue id="whitelist" isactive="true">
+    <path value="com.fpliu.newton.video.player.sample.R.mipmap.ic_launcher"/>
+    <path value="com.fpliu.newton.video.player.sample.R.mipmap.service*"/>
+
+    <path value="com.fpliu.newton.video.player.sample.R.string.com.crashlytics.*"/>
+    
+    <path value="com.fpliu.newton.video.player.sample.R.string.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.layout.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.drawable.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.anim.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.color.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.style.*UM*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.style.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.id.umeng*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.string.UM*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.string.tb_*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.layout.tb_*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.drawable.tb_*"/>
+    <path value="com.fpliu.newton.video.player.sample.R.color.tb_*"/>
+  </issue>
+
+  <issue id="keepmapping" isactive="false">
+    <path value="{your_mapping_path}"/>
+  </issue>
+
+  <issue id="compress" isactive="true">
+    <path value="*.png"/>
+    <path value="*.jpg"/>
+    <path value="*.jpeg"/>
+    <path value="*.gif"/>
+    <path value="resources.arsc"/>
+  </issue>
+
+  <issue id="sign" isactive="false">
+    <path value="release.keystore"/>
+    <storepass value="testres"/>
+    <keypass value="testres"/>
+    <alias value="testres"/>
+  </issue>
+
+</resproguard>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+    <!-- 视频播放器 -->
+    <com.pili.pldroid.player.widget.PLVideoTextureView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/landscape2PortraitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/videoView"
+        android:layout_alignBottom="@+id/videoView"
+        android:layout_marginRight="@dimen/dp750_20"
+        android:layout_marginBottom="@dimen/dp750_20"
+        android:src="@mipmap/ic_to_landscape"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/portrait2LandscapeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp750_50"
+        android:layout_marginLeft="@dimen/dp750_30"
+        android:layout_marginBottom="@dimen/dp750_45"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_to_portrait"
+        android:visibility="gone" />
+
+    <com.fpliu.newton.video.player.MediaControlLayout
+        android:id="@+id/mediaControlLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp750_30"
+        android:layout_toLeftOf="@id/portrait2LandscapeBtn" />
+
+    <com.fpliu.newton.video.player.VideoLoadingView
+        android:id="@+id/videoLoadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

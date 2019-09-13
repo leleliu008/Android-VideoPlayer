@@ -1,0 +1,23 @@
+#删除所有的日志打印
+-assumenosideeffects class android.util.Log {
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}
+
+# 删除所有的日志打印
+# 在release下启用该规则
+
+-assumenosideeffects class com.fpliu.newton.log.Logger {
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}
+
+-keep class com.fpliu.newton.log.Logger {
+    *;
+}

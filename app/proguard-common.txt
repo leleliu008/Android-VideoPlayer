@@ -1,0 +1,378 @@
+# 处理过程中输出日志
+-verbose
+
+# 将已解析过的配置输出到指定的文件。该选项可用于调试配置。
+-printconfiguration build/parsed-config.txt
+
+# 输出类文件的内部结构到给定的文件中
+-dump dump.txt
+
+# 即使有警告也不中断处理过程
+#-ignorewarnings
+
+# 不跳过-libraryjars指令指定的类库中的非public类，也就是全部加载，这样会比较耗时间
+#-dontskipnonpubliclibraryclasses
+
+# 不跳过-libraryjars指令指定的类库中的类中非public字段和方法，也就是全部加载，这样会比较耗时间
+#-dontskipnonpubliclibraryclassmembers
+
+# 压缩相关指令配置---------------------------------------------------------
+# 不进行压缩过程
+#-dontshrink
+
+# 记录压缩了哪些内容
+-printusage usage.txt
+
+# 优化相关指令配置---------------------------------------------------------
+# 不进行优化过程
+#-dontoptimize
+
+# 优化级别
+-optimizationpasses 9
+
+# 更精细的优化方面
+-optimizations !code/simplification/arithmetic,!code/allocation/variable,!field/*,!class/merging/*
+
+# 某些访问修饰符（public、protected、default、private）可能会被修改
+-allowaccessmodification
+
+# 接口可以合并，即使实现类没实现所有的方法。该选项可以通过减少类的总数减少输出文件的大小。只有开启优化时可用。
+#-mergeinterfacesaggressively
+
+# 混淆相关指令配置---------------------------------------------------------
+# 不进行混淆过程
+#-dontobfuscate
+
+# 将-keep属性匹配到的那些类、属性、方法保存到指定文件中
+-printseeds seeds.txt
+
+# 生成混淆前后的映射文件，便于查找问题
+-printmapping mapping.txt
+
+# 混淆后的类名不是大小写混合的，都是小写的
+-dontusemixedcaseclassnames
+
+# 混淆后的类放到指定的包中
+-repackageclasses ''
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.support.v4.app.Fragment
+
+-keep class * extends android.view.View {
+  public <init>(android.content.Context);
+  public <init>(android.content.Context, android.util.AttributeSet);
+  public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keep class * extends android.preference.Preference {
+  public <init>(android.content.Context);
+  public <init>(android.content.Context, android.util.AttributeSet);
+  public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclasseswithmembers class * {
+   public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class com.just.library.agentweb.AndroidInterface{ *; }
+
+-keep class * implements java.io.Serializable {
+     *;
+}
+
+-keep class * implements android.os.Parcelable {
+     public static final android.os.Parcelable$Creator *;
+}
+
+# 保护类型   -keepattributes 说明
+# Exceptions, Signature, Deprecated, SourceFile, SourceDir, LineNumberTable, LocalVariableTable,
+# LocalVariableTypeTable, Synthetic, EnclosingMethod, RuntimeVisibleAnnotations, RuntimeInvisibleAnnotations,
+# RuntimeVisibleParameterAnnotations, RuntimeInvisibleParameterAnnotations, and AnnotationDefault
+-keepattributes **
+
+-keepattributes *Annotation*
+
+-keep class * implements java.lang.annotation.Annotation {
+    *;
+}
+
+#出现错误不提示
+#-dontnote
+
+#第三方库不混淆，也不希望警告
+-dontwarn com.fpliu.**
+-dontwarn android.support.**
+-dontwarn android.**
+-dontwarn sina.**
+-dontwarn weibo.**
+-dontwarn oauth.**
+-dontwarn com.google.**
+-dontwarn com.j256.**
+-dontwarn com.umeng.**
+-dontwarn com.qiniu.**
+-dontwarn com.youme.**
+-dontwarn com.baidu.**
+-dontwarn com.tencent.**
+-dontwarn com.nostra13.universalimageloader.**
+-dontwarn net.tsz.afinal.**
+-dontwarn com.lidroid.xutils.**
+-dontwarn com.iflytek.**
+-dontwarn cn.jpush.android.**
+-dontwarn com.google.gson.jpush.internal.**
+-dontwarn com.amap.api.mapcore2d.**
+-dontwarn com.autonavi.aps.amapapi.model.**
+-dontwarn io.reactivex.**
+-dontwarn org.reactivestreams.**
+-dontwarn okio.**
+-dontwarn okhttp3.**
+-dontwarn retrofit2.**
+-dontwarn org.greenrobot.**
+-dontwarn org.apache.**
+-dontwarn com.pili.**
+-dontwarn com.ksyun.**
+-dontwarn com.airbnb.**
+-dontwarn com.pizidea.**
+-dontwarn com.mob.**
+-dontwarn com.igexin.**
+-dontwarn tv.danmaku.**
+-dontwarn com.bumptech.glide.**
+-dontwarn groovy.lang.**
+-dontwarn org.codehaus.groovy.**
+-dontwarn org.gradle.api.**
+-dontwarn com.alipay.**
+-dontwarn com.iapppay.**
+-dontwarn com.ta.utdid2.**
+-dontwarn com.ut.device.**
+-dontwarn com.just.library.**
+
+-keep class android.support.** {
+	*;
+}
+
+-keep @android.support.annotation.Keep class ** {
+    @android.support.annotation.Keep <fields>;
+    @android.support.annotation.Keep <methods>;
+}
+
+-keep class android.** {
+	*; 
+}
+
+-keep class sina.** {
+	*;
+}
+
+-keep class weibo.** {
+	*;
+}
+
+-keep class oauth.** {
+	*;
+}
+
+-keep class com.google.** {
+	*;
+}
+
+-keep class com.j256.** {
+	*;
+}
+
+-keep class com.umeng.** {
+	*;
+}
+
+-keep class com.qiniu.** {
+	*;
+}
+
+-keep class com.youme.** {
+	*;
+}
+
+-keep class com.baidu.** {
+	*;
+}
+
+-keep class com.alipay.** {
+	*;
+}
+
+-keep class com.tencent.** {
+	*;
+}
+
+-keep class org.apache.** {
+	*;
+}
+
+-keep class com.lidroid.xutils.** {
+	*;
+}
+
+-keep class com.iflytek.** {
+	*;
+}
+
+-keep class cn.jpush.android.** {
+	*;
+}
+
+-keep class com.google.gson.jpush.internal.** {
+    *;
+}
+
+-keep class com.microsoft.azure.** {
+	*;
+}
+
+-keep class com.handmark.pulltorefresh.library.** {
+	*;
+}
+
+-keep class com.github.lzyzsd.jsbridge.** {
+	*;
+}
+
+# EventBus
+-keepclassmembers class ** {
+    public void onEvent*(**);
+}
+
+#高德地图定位
+-keep class com.amap.api.location.**{*;}
+-keep class com.aps.**{*;}
+
+
+#2D地图
+-keep class com.amap.api.maps2d.**{
+    *;
+}
+
+-keep class com.amap.api.mapcore2d.**{
+    *;
+}
+
+-keep class io.reactivex.**{
+    *;
+}
+
+-keep class org.reactivestreams.**{
+    *;
+}
+
+-keep class okio.**{
+    *;
+}
+
+-keep class okhttp3.**{
+    *;
+}
+
+-keep class retrofit2.**{
+    *;
+}
+
+-keep class org.greenrobot.greendao.**{
+    *;
+}
+
+-keep @org.greenrobot.greendao.annotation.Entity class * {
+    *;
+}
+
+-keep class com.pili.**{
+    *;
+}
+
+-keep class com.ksyun.**{
+    *;
+}
+
+-keep class com.airbnb.**{
+    *;
+}
+
+-keep class com.pizidea.**{
+    *;
+}
+
+-keep class com.mob.**{
+    *;
+}
+
+-keep class com.igexin.**{
+    *;
+}
+
+-keep class tv.danmaku.**{
+    *;
+}
+
+-keep class com.bumptech.glide.**{
+    *;
+}
+
+-keep class cn.tee3.** {*;}
+-keep class org.webrtc.** {*;}
+-keep class com.qiniu.android.dns.** {*;}
+-keep class com.qiniu.pili.droid.streaming.** {*;}
+
+-keep class org.simple.** { *; }
+-keep interface org.simple.** { *; }
+-keepclassmembers class * {
+    @org.simple.eventbus.Subscriber <methods>;
+}
+
+# 爱贝支付
+-keep class com.iapppay.** {*;}
+-keep class com.ta.utdid2.** {*;}
+-keep class com.ut.device.** {*;}
+
+# Camera360
+-keep public class us.pinguo.pgskinprettifyengine.**{*;}
+-keep public class us.pinguo.prettifyengine.entity.**{*;}
+
+-keep class com.just.library.** {
+    *;
+}
+
+-keep class com.fpliu.newton.ui.list.ViewHolder {
+    *;
+}
+
+-keep interface com.fpliu.newton.http.download.DownloadAPI {
+    *;
+}
+
+-keep class wseemann.media.FFmpegMediaMetadataRetriever {
+    *;
+}
+
+-keep class com.jiangdg.yuvosd.YuvUtils {
+    *;
+}
+
+#自己的类------------------------------->>>
+-whyareyoukeeping class com.fpliu.newton.video.player.sample.R { *; }
+
+-keep class com.fpliu.newton.video.list.entity.** { *; }
+
+-keep class com.fpliu.newton.video.list.HTTPAPI { *; }
+
+-keep class com.fpliu.newton.video.player.entity.** { *; }
+
+#自己的类<<<-------------------------------
+
+# 预校验相关指令配置---------------------------------------------------------
+#不进行预校验过程
+-dontpreverify
