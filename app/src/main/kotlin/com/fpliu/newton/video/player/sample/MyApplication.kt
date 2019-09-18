@@ -18,6 +18,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.fpliu.kotlin.util.jdk.touch
 import com.fpliu.newton.crash.CrashHandler
+import com.fpliu.newton.font.config.api.applyFont
 import com.fpliu.newton.http.RetrofitRequest
 import com.fpliu.newton.http.converter.StringConverterFactory
 import com.fpliu.newton.http.cookie.MemoryCookieJar
@@ -186,7 +187,7 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks {
 
         //全局替换字体
         try {
-            globalReplaceFont("Alibaba_PuHuiTi_Light.otf")
+            applyFont("assets:Alibaba_PuHuiTi_Light.otf")
         } catch (e: Exception) {
             ErrorHandler.onError(e)
         }
