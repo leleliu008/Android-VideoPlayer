@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         //Android编译插件
         //https://developer.android.com/studio/releases/gradle-plugin
-        classpath("com.android.tools.build:gradle:3.4.0")
+        classpath("com.android.tools.build:gradle:3.5.0")
 
         //Kotlin编译的插件
         //http://kotlinlang.org/docs/reference/using-gradle.html
