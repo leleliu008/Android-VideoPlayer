@@ -25,10 +25,10 @@
 3. [AndResGuard](https://github.com/shwenzhang/AndResGuard)
 4. [ProGuard](http://blog.fpliu.com/it/software/ProGuard)
 5. [ReDex](http://blog.fpliu.com/it/software/ReDex)
-6. [360加固包](http://blog.fpliu.com/it/software/360加固保)
+6. [360加固保](http://blog.fpliu.com/it/software/360加固保)
 7. [libwebp](http://blog.fpliu.com/it/software/libwebp)
 8. [7zip](http://blog.fpliu.com/it/software/p7zip)
-9. [Bash](http://blog.fpliu.com/it/software/GNU/Bash)
+9. [androidx](https://github.com/leleliu008/androidx)
 
 ### 打印日志
 ```
@@ -43,9 +43,9 @@ adb shell cat /sdcard/com.fpliu.newton.video.player.sample/log/UncaughtException
 ### 构建包
 构建`release`包：
 ```
-./tool.sh build release --webp --jiagu --resguard --channel
+androidx build --project-dir=DIR --environment=release --webp --jiagu --resguard --channels-gen --channels-zip
 ```
 构建`debug`包：
 ```
-./tool.sh build debug
+androidx build --project-dir=DIR --environment=debug
 ```

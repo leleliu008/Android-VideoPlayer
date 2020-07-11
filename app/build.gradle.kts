@@ -15,7 +15,7 @@ android {
         minSdkVersion(18)
         targetSdkVersion(22)
         applicationId = "com.fpliu.newton.video.player.sample"
-        versionCode = 1568377850
+        versionCode = 1594456900
         versionName = "1.0.0"
 
         //只需要支持中文和英文即可，其他语言不必支持
