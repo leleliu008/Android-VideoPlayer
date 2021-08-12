@@ -3,7 +3,7 @@ buildscript {
     kotlinVersion = "1.3.50"
 
     repositories {
-        jcenter { url = uri("https://maven.aliyun.com/repository/jcenter") }
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
         //dl.google.com 在北京海淀区有CND节点，因此不必用镜像
         google()
     }
@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         //Android编译插件
         //https://developer.android.com/studio/releases/gradle-plugin
-        classpath("com.android.tools.build:gradle:3.5.0")
+        classpath("com.android.tools.build:gradle:7.0.0")
 
         //Kotlin编译的插件
         //http://kotlinlang.org/docs/reference/using-gradle.html
@@ -21,7 +21,6 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter { url = uri("https://maven.aliyun.com/repository/jcenter") }
         google()
         maven { url = uri("https://maven.aliyun.com/repository/public") }
         maven { url = uri("https://gitee.com/fpliu/maven-repo/raw/master") }

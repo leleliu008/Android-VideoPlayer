@@ -5,21 +5,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
-
-    //此配置虽然可以不配置，这里需要配置的原因是tool.sh里需要读取，
-    //后面会想办法解决
-    buildToolsVersion("28.0.3")
+    compileSdkVersion(30)
 
     defaultConfig {
         minSdkVersion(18)
         targetSdkVersion(22)
         applicationId = "com.fpliu.newton.video.player.sample"
-        versionCode = 1594456900
+        versionCode = 1628779843
         versionName = "1.0.0"
 
         //只需要支持中文和英文即可，其他语言不必支持
         resConfigs("en", "zh")
+
+        ndk {
+            abiFilters.add("armeabi-v7a")
+        }
     }
 
     sourceSets {
@@ -54,16 +54,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-common.txt", "proguard-nolog.txt")
-
-            //只有release包才过滤
-            ndk {
-                abiFilters("armeabi-v7a")
-            }
         }
-    }
-
-    dexOptions {
-        javaMaxHeapSize = "4g"
     }
 
     lintOptions {
@@ -74,8 +65,8 @@ android {
 
     compileOptions {
         //使用JAVA8语法解析
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     packagingOptions {
@@ -165,14 +156,18 @@ dependencies {
 
     //渠道包中读取渠道号
     //https://github.com/Meituan-Dianping/walle
+    //https://mvnrepository.com/artifact/com.meituan.android.walle/library
     api("com.meituan.android.walle:library:1.1.5")
 
-    //https://jcenter.bintray.com/com/umeng
     //友盟所有SDK的公共部分
+    //https://mvnrepository.com/artifact/com.umeng.sdk/common
     api("com.umeng.sdk:common:1.5.3")
+    
     //友盟统计
+    //https://mvnrepository.com/artifact/com.umeng.sdk/analytics
     api("com.umeng.analytics:analytics:6.1.3")
 
+    //https://mvnrepository.com/artifact/com.fpliu
     api("com.fpliu:Android-CrashHandler:1.0.0")
     api("com.fpliu:Android-StatusBar-Util:1.0.2")
     api("com.fpliu:Android-Font-Config-api:1.0.0")

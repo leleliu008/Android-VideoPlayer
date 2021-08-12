@@ -294,9 +294,9 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks {
     override fun onTrimMemory(level: Int) {
         Logger.i(TAG, "onTrimMemory() level = $level")
         super.onTrimMemory(level)
-        if (level == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) { //进入后台的时候会是这个level
+//        if (level == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) { //进入后台的时候会是这个level
 //            Glide.get(this).clearMemory()
-        }
+//        }
 //        Glide.get(this).trimMemory(level)
     }
 }

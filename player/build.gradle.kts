@@ -5,14 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
-
-    defaultConfig {
-//        minSdkVersion(16)
-//        targetSdkVersion(28)
-        versionCode = 1
-        versionName = "1.0.0"
-    }
+    compileSdkVersion(30)
 
     sourceSets {
         getByName("main") {
@@ -33,8 +26,8 @@ android {
 
     compileOptions {
         //使用JAVA8语法解析
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 

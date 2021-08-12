@@ -5,14 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
-
-    defaultConfig {
-//        minSdkVersion(18)
-//        targetSdkVersion(22)
-        versionCode = 1
-        versionName = "1.0.0"
-    }
+    compileSdkVersion(30)
 
     sourceSets {
         getByName("main") {
@@ -29,8 +22,8 @@ android {
 
     compileOptions {
         //使用JAVA8语法解析
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
@@ -77,7 +70,7 @@ dependencies {
     }
 
     // 下面这些源代码的地址：https://github.com/leleliu008
-    // 包托管在jCenter：https://bintray.com/fpliu/newton
+    // 包托管在Maven Center：https://mvnrepository.com/artifact/com.fpliu
 
     api("com.fpliu:RetrofitHelper:1.0.1") {
         //将内置的retrofit2依赖去掉，因为我们要使用自己扩展的retrofit2
